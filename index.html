@@ -21,27 +21,36 @@
             class="toggle"
             title="Switch theme"
          >
-            <span class="label millennial">🔥 Millennial</span>
-            <span class="label genz">🌈 Gen Z</span>
+            <span class="label millennial">🔥Millennial</span>
+            <span class="label genz">🌈Gen Z</span>
          </button>
       </header>
 
-      <main class="translator wrap">
+      <main class="translator wrap" id="translator-wrap">
          <div class="panel input">
             <h2 id="input-title">Blunt phrase</h2>
-            <label class="sr-only" for="jargon">Type your phrase</label>
+            <label class="jargon" id="jargon-label" for="jargon"
+               >Type your phrase</label
+            >
             <textarea
                id="jargon"
                rows="6"
                placeholder="Your lack of planning is not my urgency."
             ></textarea>
-            <button id="translate" class="cta" aria-busy="false">
+            <button
+               id="translate"
+               class="translate"
+               aria-busy="false"
+               type="button"
+            >
                Translate to Professional
             </button>
          </div>
 
          <div class="panel output">
-            <h2 id="output-title">Professional translation</h2>
+            <h2 id="output-title" class="output title">
+               Professional translation
+            </h2>
             <div
                id="result"
                class="result-box"
@@ -52,16 +61,23 @@
       </main>
       <footer>
          Coded by
-         <a href="https://github.com/di-legorreta" ref="_blank"
+         <a
+            href="https://github.com/di-legorreta"
+            target="_blank"
+            rel="noopener noreferrer"
             >Diana Legorreta</a
          >open-sourced on
          <a
             href="https://github.com/di-legorreta/corporate-jargon-translator"
-            ref="_blank"
+            target="_blank"
+            rel="noopener noreferrer"
             >GitHub</a
          >
          and hosted on
-         <a href="https://corporate-jargon-translator.pages.dev/" ref="_blank"
+         <a
+            href="https://corporate-jargon-translator.pages.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
             >CloudFlare Pages</a
          >
       </footer>
