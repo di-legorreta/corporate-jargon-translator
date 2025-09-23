@@ -7,16 +7,15 @@
 html {
    height: 100%;
 }
-body.genz {
+
+body {
    background-color: #32325c;
-   color: #d3d9e9;
+   color: white;
    font-family: "Montserrat", sans-serif;
 }
 
-body {
+body.genz {
    background-image: url(../images/Moon.svg);
-   color: white;
-   font-family: "Montserrat", sans-serif;
 }
 
 h1 {
