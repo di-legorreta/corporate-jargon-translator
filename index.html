@@ -6,32 +6,32 @@
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
       <link
-         href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Dosis:wght@200..800&display=swap"
+         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
          rel="stylesheet"
       />
       <title>Corporate AI Translator</title>
       <link rel="stylesheet" href="src/styles.css" />
    </head>
    <body>
-      <header class="app-header wrap">
-         <h1 class="brand" id="brand">Corporate AI Translator</h1>
+      <div class="app-header">
          <button
             id="theme-toggle"
             aria-pressed="false"
             class="toggle"
             title="Switch theme"
          >
-            <span class="label millennial">🔥Millennial</span>
-            <span class="label genz">🌈Gen Z</span>
+            <span class="label millennial">Millennial</span>
+            <span class="label genz"> 🌈Gen Z</span>
          </button>
+      </div>
+      <header>
+         <h1 class="title" id="brand">Corporate AI Translator</h1>
       </header>
 
       <main class="translator wrap" id="translator-wrap">
          <div class="panel input">
             <h2 id="input-title">Blunt phrase</h2>
-            <label class="jargon" id="jargon-label" for="jargon"
-               >Type your phrase</label
-            >
+            <label class="jargon" id="jargon-label" for="jargon"></label>
             <textarea
                id="jargon"
                rows="6"
@@ -51,12 +51,7 @@
             <h2 id="output-title" class="output title">
                Professional translation
             </h2>
-            <div
-               id="result"
-               class="result-box"
-               aria-live="polite"
-               tabindex="-1"
-            ></div>
+            <div id="result" class="result-box" aria-live="polite"></div>
          </div>
       </main>
       <footer>
