@@ -1,3 +1,9 @@
+let busy = false;
+function beginCooldown(ms = 900) {
+   busy = true;
+   setTimeout(() => (busy = false), ms);
+}
+
 function handleError(err) {
    console.error(err);
    setWait(false);
@@ -33,6 +39,8 @@ function displayTranslation(response) {
 
 function translateJargon(event) {
    event.preventDefault();
+   if (busy) return;
+   beginCooldown();
 
    clearText();
    setWait(true);
@@ -56,7 +64,11 @@ function translateJargon(event) {
       "&key=" +
       encodeURIComponent(apiKey);
 
-   axios.get(apiUrl).then(displayTranslation).catch(handleError);
+   axios
+      .get(apiUrl)
+      .then(displayTranslation)
+      .catch(handleError)
+      .finally(() => setWait(false));
 }
 
 document.querySelector(".toggle").addEventListener("click", () => {
