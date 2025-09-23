@@ -1,19 +1,41 @@
-document.querySelector(".toggle").addEventListener("click", () => {
-   document.body.classList.toggle("genz");
-});
+function handleError(err) {
+   console.error(err);
+   setWait(false);
+   formatAnswer("Network error. Please try again.");
+}
+
+function clearText() {
+   const clearArea = document.querySelector("#result");
+   clearArea.textContent = "";
+}
+
+function cleanInput() {
+   return document.querySelector("#jargon").value.trim().replace(/\s+/g, " ");
+}
+
+function setWait(isLoading) {
+   const buttonEl = document.querySelector("#translate");
+   if (!buttonEl) return;
+   buttonEl.disabled = isLoading;
+   buttonEl.setAttribute("aria-busy", String(isLoading)); // ← a11y
+   buttonEl.textContent = isLoading ? "Waiting..." : "Translate to Corporate";
+}
 
 function displayTranslation(response) {
-   console.log("translation");
    new Typewriter("#result", {
       strings: response.data.answer,
       autoStart: true,
       delay: 1,
       cursor: "",
    });
+   setWait(false);
 }
 
 function translateJargon(event) {
    event.preventDefault();
+
+   clearText();
+   setWait(true);
 
    const bluntEl = document.querySelector("#jargon");
    const apiKey = "297bdob5643aebcfc422bc019b792eta";
@@ -34,12 +56,17 @@ function translateJargon(event) {
       "&key=" +
       encodeURIComponent(apiKey);
 
-   console.log("Translating");
-   console.log(` ${prompt}`);
-   console.log(` ${context}`);
-
-   axios.get(apiUrl).then(displayTranslation);
+   axios.get(apiUrl).then(displayTranslation).catch(handleError);
 }
 
-const inputEl = document.querySelector("#translate");
-inputEl.addEventListener("click", translateJargon);
+document.querySelector(".toggle").addEventListener("click", () => {
+   document.body.classList.toggle("genz");
+});
+
+document.querySelector("#translate").addEventListener("click", translateJargon);
+
+document.querySelector("#jargon").addEventListener("keydown", (e) => {
+   if ((e.metaKey || e.ctrlKey) && e.key === "Enter") {
+      document.querySelector("#translate").click();
+   }
+});
