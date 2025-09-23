@@ -41,5 +41,5 @@ function translateJargon(event) {
    axios.get(apiUrl).then(displayTranslation);
 }
 
-let inputEl = document.querySelector("#translate");
+const inputEl = document.querySelector("#translate");
 inputEl.addEventListener("click", translateJargon);
