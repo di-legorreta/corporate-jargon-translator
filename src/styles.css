@@ -9,13 +9,14 @@ html {
 }
 
 body {
-   background-color: #32325c;
+   background-color: #282a36;
    color: white;
    font-family: "Montserrat", sans-serif;
 }
 
 body.genz {
-   background-image: url(../images/dashwave.svg);
+   background-image: url(../images/moon1.svg);
+   background-size: cover;
 }
 
 h1 {
