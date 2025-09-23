@@ -104,6 +104,7 @@ a {
 
 textarea,
 .result-box {
+   padding: 14px 16px;
    width: 100%;
    display: block;
    height: 240px;
